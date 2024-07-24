@@ -7,7 +7,7 @@ class Program
 {
     static void Main()
     {
-        string connectionString = "Server=localhost;Database=tac_prod_database;User ID=root;Password=ibc123;";
+        string connectionString = "Server=localhost;Database=data_base_name;User ID=root;Password=123;";
 
         using (MySqlConnection conn = new MySqlConnection(connectionString))
         {
@@ -16,7 +16,7 @@ class Program
                 conn.Open();
 
                 // Fetch all table names
-                MySqlCommand getTablesCmd = new MySqlCommand("SELECT table_name FROM information_schema.tables WHERE table_schema = 'tac_prod_database';", conn);
+                MySqlCommand getTablesCmd = new MySqlCommand("SELECT table_name FROM information_schema.tables WHERE table_schema = 'data_base_name';", conn);
                 MySqlDataAdapter adapter = new MySqlDataAdapter(getTablesCmd);
                 DataTable tables = new DataTable();
                 adapter.Fill(tables);
