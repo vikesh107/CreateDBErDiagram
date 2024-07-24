@@ -42,7 +42,7 @@ class Program
                         SELECT COLUMN_NAME, COLUMN_TYPE 
                         FROM information_schema.columns 
                         WHERE table_name = '{tableName}' 
-                        AND table_schema = 'tac_prod_database';", conn);
+                        AND table_schema = 'data_base_name';", conn);
 
                     MySqlDataReader columnReader = getColumnsCmd.ExecuteReader();
 
@@ -70,7 +70,7 @@ class Program
                             information_schema.key_column_usage AS kcu
                         WHERE 
                             kcu.table_name = '{tableName}' 
-                            AND kcu.table_schema = 'tac_prod_database' 
+                            AND kcu.table_schema = 'data_base_name' 
                             AND kcu.referenced_table_name IS NOT NULL;", conn);
 
                     MySqlDataReader fkReader = getForeignKeysCmd.ExecuteReader();
